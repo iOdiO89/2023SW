@@ -43,7 +43,7 @@ void doTask() {
     JoinUI joui;
     Withdrawal wd;
     WithdrawalUI wdui;
-    Login log;
+    Login login;
     LoginUI logui;
     Logout lout;
     LogoutUI loutui;
@@ -75,7 +75,7 @@ void doTask() {
             case 1: {
                 string id, password;
                 fscanf(in_fp, "%s %s", &id[0], &password[0]);
-                logui.start(gu, log, id, password, out_fp);
+                logui.start(gu, login, id, password, out_fp);
                 break;
             }
             case 2: {
