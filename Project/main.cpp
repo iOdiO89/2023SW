@@ -1,99 +1,125 @@
-﻿// 헤더 선언
 #include <stdio.h>
 #include <string.h>
-#include <iostream>
-
-#include "Join.h"
-#include "JoinUI.h"
-#include "Withdrawal.h"
-#include "WithdrawalUI.h"
-#include "Login.h"
-#include "LoginUI.h"
-#include "Logout.h"
-#include "LogoutUI.h"
-#include "GeneralMember.h"
-#include "CompanyMember.h"
-
+#include "ApplyRecruitUI.h"
+#include "CancelApplyUI.h"
+#include "SearchApplyUI.h"
+#include "CompanyMemmberCollection.h"
+#include "GeneralMemberCollection.h"
 // 상수 선언
 #define MAX_STRING 32
-#define INPUT_FILE_NAME "input.txt"
+#define INPUT_FILE_NAME "input.txt“
 #define OUTPUT_FILE_NAME "output.txt"
-
 // 함수 선언
 void doTask();
+void join();
+void apply(); // 4.2
 void program_exit();
-
 // 변수 선언
-FILE* in_fp, * out_fp;
+FILE *in_fp, *out_fp;
 
-using namespace std;
+CompanyMemberCollection *ownedCM;
+GeneralMemberCollection *ownedGM;
 
-int main() {
+int main()
+{
     // 파일 입출력을 위한 초기화
-    in_fp = fopen(INPUT_FILE_NAME, "r+");
-    out_fp = fopen(OUTPUT_FILE_NAME, "w+");
+    FILE *in_fp = fopen(INPUT_FILE_NAME, "r+");
+    FILE *out_fp = fopen(OUTPUT_FILE_NAME, "w+");
+
+    ownedCM = new CompanyMemberCollection();
+    ownedGM = new GeneralMemberCollection();
 
     doTask();
 
     return 0;
 }
 
-void doTask() {
-    Join jo;
-    JoinUI joui;
-    Withdrawal wd;
-    WithdrawalUI wdui;
-    Login login;
-    LoginUI logui;
-    Logout lout;
-    LogoutUI loutui;
-    GeneralMember gu("", "", "", "");
-    CompanyMember cu("", "", "", "");
-
+void doTask()
+{
     // 메뉴 파싱을 위한 level 구분을 위한 변수
     int menu_level_1 = 0, menu_level_2 = 0;
     int is_program_exit = 0;
-
-    while (!is_program_exit) {
+    while (!is_program_exit)
+    {
         // 입력파일에서 메뉴 숫자 2개를 읽기
-        fscanf(in_fp, "%d %d", &menu_level_1, &menu_level_2);
+        fscanf(in_fp, "%d %d ", &menu_level_1, &menu_level_2);
         // 메뉴 구분 및 해당 연산 수행
-        switch (menu_level_1) {
-        case 1: {
-            switch (menu_level_2) {
-            case 1: {
-                joui.start(jo, in_fp, out_fp);
+        switch (menu_level_1)
+        {
+        case 1:
+        {
+            switch (menu_level_2)
+            {
+            case 1: // "1.1. 회원가입“ 메뉴 부분
+            {
+                // join() 함수에서 해당 기능 수행
+
                 break;
             }
-            case 2: {
-                wdui.start(gu, wd, out_fp);
-                break;
-            }
-            }
-        case 2: {
-            switch (menu_level_2) {
-            case 1: {
-                string id, password;
-                fscanf(in_fp, "%s %s", &id[0], &password[0]);
-                logui.start(gu, login, id, password, out_fp);
-                break;
-            }
-            case 2: {
-                loutui.start(gu, lout, out_fp);
+            case 2:
+            {
                 break;
             }
             }
         }
-        default: {
-            cout << "잘못된 선택입니다." << endl;
-            break;
+        case 4:
+        {
+            switch (menu_level_2)
+            {
+            case 1:
+                /* code */
+                break;
+
+            case 2:
+                apply(ID);
+                break;
+
+            case 3:
+                applyInfo(ID);
+
+            case 4:
+                applycancel(ID);
+
+            default:
+                break;
+            }
         }
+        // case 2~5 추가해야함!!!!!!
+        case 6:
+        {
+            switch (menu_level_2)
+            {
+            case 1: // "6.1. 종료“ 메뉴 부분
+            {
+                program_exit();
+                is_program_exit = 1;
+                break;
+            }
+            }
         }
         }
     }
+    return;
 }
 
-    void program_exit() {
-        cout << "프로그램을 종료합니다." << endl;
-        exit(0);
-    }
+void apply(string ID)
+{
+    ApplyRecruitUI *ARUI = new ApplyRecruitUI();
+    ARUI->applyNewRecruit(ID);
+}
+
+void applyInfo(string ID)
+{
+    SearchApplyUI *SAUI = new SearchApplyUI();
+    SAUI->searchApplication(ID);
+}
+
+void applycancel(string ID)
+{
+    CancelApplyUI *CAUI = new CancelApplyUI();
+    CAUI->selectApplication(ID);
+}
+
+void program_exit()
+{
+}

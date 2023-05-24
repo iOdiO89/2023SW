@@ -1,26 +1,16 @@
 #include "GeneralMember.h"
 
-using namespace std;
-
-GeneralMember::GeneralMember(const string& name, const string& socialNumber, const string& id, const string& password)
-    : Member(id, password, UserType::General), name(name), socialNumber(socialNumber) {}
-
-UserType GeneralMember::getMemberType() const {
-    return UserType::General;
+ApplicationCollection GeneralMember::getAC()
+{
+    return ownAC;
 }
 
-void GeneralMember::withdraw() {
-    loggedIn = false;
+string GeneralMember::getID()
+{
+    return ID;
 }
 
-bool GeneralMember::isActive() const {
-    return loggedIn;
-}
-
-string GeneralMember::getName() const {
-    return name;
-}
-
-string GeneralMember::getSocialNumber() const {
-    return socialNumber;
+void GeneralMember::setOwnAC(ApplicationCollection AC)
+{
+    ownAC = AC;
 }

@@ -1,22 +1,14 @@
-#pragma once
-#include <iostream>
-#include <vector>
-
+#include "Member.h"
 #include "Recruit.h"
 
-using namespace std;
-
-class CompanyMember {
+class CompanyMember : public Member
+{
 private:
-	string companyName;
-	int businessNum; 
-	vector<Recruit> recruitArray;
+    string companyName;
+    string businessNum;
+    Recruit ownRecruit;
 
 public:
-	CompanyMember(string, int);
-	CompanyMember(string, int, vector<Recruit>); // 삭제필요
-	string getCompanyName();
-	int getBusinessNum();
-	void addNewRecruit(string, int, string);
-	vector<Recruit> listRecruit();
+    string getBusinessNum();
+    Recruit getRecruit();
 };

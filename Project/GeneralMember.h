@@ -1,15 +1,15 @@
-#pragma once
+#include "Member.h"
+#include "ApplicationCollection.h"
 
-#include <iostream>
-
-using namespace std;
-
-class GeneralMember
+class GeneralMember : public Member
 {
 private:
-	string name;
-	int securityNum;
-public:
-	GeneralMember(string, int);
-};
+    string name;
+    string securityNum;
+    ApplicationCollection ownAC;
 
+public:
+    ApplicationCollection getAC();
+    string getID();
+    void setOwnAC(ApplicationCollection AC);
+};
