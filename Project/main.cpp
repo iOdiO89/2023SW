@@ -1,85 +1,99 @@
+ï»¿// í—¤ë” ì„ ì–¸
+#include <stdio.h>
+#include <string.h>
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
 
-#include "CompanyMember.h" 
-#include "Recruit.h" 
-#include "ApplicationStats.h"
-#include "ApplicationStatsUI.h"
-#include "Application.h"
+#include "Join.h"
+#include "JoinUI.h"
+#include "Withdrawal.h"
+#include "WithdrawalUI.h"
+#include "Login.h"
+#include "LoginUI.h"
+#include "Logout.h"
+#include "LogoutUI.h"
 #include "GeneralMember.h"
-#include "RecruitCollection.h"
-#include "ApplicationCollection.h"
-#include "RecruitStats.h"
-#include "RecruitStatsUI.h"
+#include "CompanyMember.h"
 
+// ìƒìˆ˜ ì„ ì–¸
+#define MAX_STRING 32
 #define INPUT_FILE_NAME "input.txt"
-ifstream readFile(INPUT_FILE_NAME);
+#define OUTPUT_FILE_NAME "output.txt"
 
-// ÇÔ¼ö ¼±¾ğ
+// í•¨ìˆ˜ ì„ ì–¸
 void doTask();
 void program_exit();
 
+// ë³€ìˆ˜ ì„ ì–¸
+FILE* in_fp, * out_fp;
+
 using namespace std;
 
-int main()
-{
-    doTask();
+int main() {
+    // íŒŒì¼ ì…ì¶œë ¥ì„ ìœ„í•œ ì´ˆê¸°í™”
+    in_fp = fopen(INPUT_FILE_NAME, "r+");
+    out_fp = fopen(OUTPUT_FILE_NAME, "w+");
 
-    readFile.close();
+    doTask();
 
     return 0;
 }
 
-void doTask()
-{   
-    Recruit newRecruit("È¸»çÀÌ¸§", 3456, "accounting", 2, "2023/05/22");
-    vector<Recruit> recruit;
-    recruit.push_back(newRecruit);
-    CompanyMember companyMember("È¸»çÈ¸¿ø", 3456, recruit); // ÀÓ½Ã »ı¼º
+void doTask() {
+    Join jo;
+    JoinUI joui;
+    Withdrawal wd;
+    WithdrawalUI wdui;
+    Login login;
+    LoginUI logui;
+    Logout lout;
+    LogoutUI loutui;
+    GeneralMember gu("", "", "", "");
+    CompanyMember cu("", "", "", "");
 
-    // ¸Ş´º ÆÄ½ÌÀ» À§ÇÑ level ±¸ºĞÀ» À§ÇÑ º¯¼ö
-    int menuLevel1 = 0, menuLevel2 = 2;
+    // ë©”ë‰´ íŒŒì‹±ì„ ìœ„í•œ level êµ¬ë¶„ì„ ìœ„í•œ ë³€ìˆ˜
+    int menu_level_1 = 0, menu_level_2 = 0;
     int is_program_exit = 0;
 
-    string line, rest;
-    while (!is_program_exit && !readFile.eof())
-    {
-        getline(readFile, line);
-        menuLevel1 = line[0] - '0'; // int º¯È¯
-        menuLevel2 = line[2] - '0';
-        if (line.length() > 4) rest = line.substr(4, line.length()); // rest = ³ª¸ÓÁö ¸Å°³º¯¼öµé
-        // ¸Ş´º ±¸ºĞ ¹× ÇØ´ç ¿¬»ê ¼öÇà
-        switch (menuLevel1)
-        {
-        case 5:
-            switch (menuLevel2) {
-            case 1:
-                RecruitStatsUI recruitStatsUI;
-                recruitStatsUI.CheckRecruitStats();
-                break;
-            case 2:
-                ApplicationStatsUI applicationStatsUI;
-                applicationStatsUI.CheckApplicationStats();
+    while (!is_program_exit) {
+        // ì…ë ¥íŒŒì¼ì—ì„œ ë©”ë‰´ ìˆ«ì 2ê°œë¥¼ ì½ê¸°
+        fscanf(in_fp, "%d %d", &menu_level_1, &menu_level_2);
+        // ë©”ë‰´ êµ¬ë¶„ ë° í•´ë‹¹ ì—°ì‚° ìˆ˜í–‰
+        switch (menu_level_1) {
+        case 1: {
+            switch (menu_level_2) {
+            case 1: {
+                joui.start(jo, in_fp, out_fp);
                 break;
             }
-            break;
-        case 6:
-            switch (menuLevel2)
-            {
-            case 1:   // "6.1. Á¾·á¡° ¸Ş´º ºÎºĞ
-                program_exit();
-                is_program_exit = 1;
-                break;;
+            case 2: {
+                wdui.start(gu, wd, out_fp);
+                break;
+            }
+            }
+        case 2: {
+            switch (menu_level_2) {
+            case 1: {
+                string id, password;
+                fscanf(in_fp, "%s %s", &id[0], &password[0]);
+                logui.start(gu, login, id, password, out_fp);
+                break;
+            }
+            case 2: {
+                loutui.start(gu, lout, out_fp);
+                break;
+            }
             }
         }
+        default: {
+            cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤." << endl;
+            break;
+        }
+        }
+        }
     }
-
-    return;
 }
 
-void program_exit() {
-    cout << "ÇÁ·Î±×·¥ Á¾·á" << endl;
-    exit(0);
-}
+    void program_exit() {
+        cout << "í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
+        exit(0);
+    }

@@ -1,15 +1,23 @@
-#pragma once
-#include <iostream>
-#include <string.h>
+#ifndef GENERALMEMBER_H
+#define GENERALMENBER_H
 
-#include "ApplicationCollection.h"
+#include "Member.h"
 
-class GeneralMember
-{
-private:
-	string name;
-	string securityNum;
-	ApplicationCollection ownAC;
+using namespace std;
+
+class GeneralMember : public Member {
 public:
-	ApplicationCollection GetAC();
+    GeneralMember(const string& name, const string& socialNumber, const string& id, const string& password);
+    UserType getMemberType() const override;
+    void withdraw() override;
+    bool isActive() const override;
+
+    string getName() const;
+    string getSocialNumber() const;
+
+private:
+    string name;
+    string socialNumber;
 };
+
+#endif
