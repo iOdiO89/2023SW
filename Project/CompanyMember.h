@@ -1,23 +1,22 @@
-#ifndef COMPANYMEMBER_H
-#define COMPANYMEMBER_H
+#pragma once
+#include <iostream>
+#include <vector>
 
-#include "Member.h"
+#include "Recruit.h"
 
 using namespace std;
 
-class CompanyMember : public Member {
-public:
-    CompanyMember(const string& companyName, const string& businessNumber, const string& id, const string& password);
-    UserType getMemberType() const override;
-    void withdraw() override;
-    bool isActive() const override;
-
-    string getCompanyName() const;
-    string getBusinessNumber() const;
-
+class CompanyMember {
 private:
-    string companyName;
-    string businessNumber;
-};
+	string companyName;
+	int businessNum; 
+	vector<Recruit> recruitArray;
 
-#endif
+public:
+	CompanyMember(string, int);
+	CompanyMember(string, int, vector<Recruit>); // 삭제필요
+	string getCompanyName();
+	int getBusinessNum();
+	void addNewRecruit(string, int, string);
+	vector<Recruit> listRecruit();
+};

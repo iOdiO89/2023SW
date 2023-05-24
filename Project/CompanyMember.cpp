@@ -1,26 +1,34 @@
 #include "CompanyMember.h"
 
-using namespace std;
 
-CompanyMember::CompanyMember(const string& companyName, const string& businessNumber, const string& id, const string& password)
-    : Member(id, password, UserType::Company), companyName(companyName), businessNumber(businessNumber) {}
-
-UserType CompanyMember::getMemberType() const {
-    return UserType::Company;
+CompanyMember::CompanyMember(string inputCompanyName, int inputBusinessNum) {
+	companyName = inputCompanyName;
+	businessNum = inputBusinessNum;
+	//벡터는 size = 0 인 벡터 자동생성
 }
 
-void CompanyMember::withdraw() {
-    loggedIn = false;
+// 삭제예정
+CompanyMember::CompanyMember(string inputCompanyName, int inputBusinessNum, vector<Recruit> inputRecruitArray) {
+	companyName = inputCompanyName;
+	businessNum = inputBusinessNum;
+	recruitArray = inputRecruitArray;
 }
 
-bool CompanyMember::isActive() const {
-    return loggedIn;
+string CompanyMember::getCompanyName() {
+	return companyName;
 }
 
-string CompanyMember::getCompanyName() const {
-    return companyName;
+int CompanyMember::getBusinessNum() {
+	return businessNum;
 }
 
-string CompanyMember::getBusinessNumber() const {
-    return businessNumber;
+void CompanyMember::addNewRecruit(string task, int number, string deadline) {
+	string companyName = getCompanyName();
+	int businessNum = getBusinessNum();
+	Recruit newRecruit = Recruit(companyName, businessNum, task, number, deadline);
+	recruitArray.push_back(newRecruit);
+}
+
+vector<Recruit> CompanyMember::listRecruit() {
+	return recruitArray;
 }

@@ -113,7 +113,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
@@ -139,20 +139,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="application.h" />
-    <ClInclude Include="ApplicationStatsUI.h" />
-    <ClInclude Include="CompanyMember.h" />
-    <ClInclude Include="recruit.h" />
-    <ClInclude Include="GeneralMember.h" />
-    <ClInclude Include="applicationstats.h" />
-    <ClInclude Include="ApplicationCollection.h" />
+    <ClCompile Include="AddRecruit.cpp" />
+    <ClCompile Include="AddRecruitUI.cpp" />
+    <ClCompile Include="CompanyMember.cpp" />
+    <ClCompile Include="GeneralMember.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Recruit.cpp" />
+    <ClCompile Include="ShowRecruit.cpp" />
+    <ClCompile Include="ShowRecruitInfo.cpp" />
+    <ClCompile Include="ShowRecruitInfoUI.cpp" />
+    <ClCompile Include="ShowRecruitUI.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="application.cpp" />
-    <ClCompile Include="recruitstats.cpp" />
-    <ClCompile Include="recruitstatsui.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="recruit.cpp" />
+    <ClInclude Include="AddRecruit.h" />
+    <ClInclude Include="AddRecruitUI.h" />
+    <ClInclude Include="CompanyMember.h" />
+    <ClInclude Include="GeneralMember.h" />
+    <ClInclude Include="Recruit.h" />
+    <ClInclude Include="ShowRecruit.h" />
+    <ClInclude Include="ShowRecruitInfo.h" />
+    <ClInclude Include="ShowRecruitInfoUI.h" />
+    <ClInclude Include="ShowRecruitUI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

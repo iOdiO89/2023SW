@@ -1,23 +1,15 @@
-#ifndef GENERALMEMBER_H
-#define GENERALMENBER_H
+#pragma once
 
-#include "Member.h"
+#include <iostream>
 
 using namespace std;
 
-class GeneralMember : public Member {
-public:
-    GeneralMember(const string& name, const string& socialNumber, const string& id, const string& password);
-    UserType getMemberType() const override;
-    void withdraw() override;
-    bool isActive() const override;
-
-    string getName() const;
-    string getSocialNumber() const;
-
+class GeneralMember
+{
 private:
-    string name;
-    string socialNumber;
+	string name;
+	int securityNum;
+public:
+	GeneralMember(string, int);
 };
 
-#endif
