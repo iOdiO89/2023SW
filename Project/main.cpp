@@ -49,7 +49,7 @@ void doTask()
     int is_program_exit = 0;
 
     string line, rest;
-    while (!is_program_exit && !readFile.eof())
+    while (!is_program_exit)
     {
         getline(readFile, line);
         menuLevel1 = line[0] - '0'; // int 변환

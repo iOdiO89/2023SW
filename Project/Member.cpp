@@ -10,6 +10,10 @@ string Member::getPW() {
 	return this->PW;
 }
 
+int Member::getIsCompanyMember() {
+	return this->isCompanyMember;
+}
+
 void Member::addNewRecruit(string, int, string) {
 	return;
 }
@@ -19,5 +23,6 @@ vector<Recruit> Member::listRecruit() {
 	return nullRecruitVector;
 }
 
-Member::~Member() {
+string Member::getCompanyName(){
+	return "";
 }

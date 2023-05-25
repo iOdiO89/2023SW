@@ -19,7 +19,7 @@ public:
 
 	CompanyMember(string, int);
 	CompanyMember(string, int, vector<Recruit>); // 삭제필요
-	string getCompanyName();
+	virtual string getCompanyName();
 	int getBusinessNum();
 	virtual void addNewRecruit(string, int, string);
 	virtual vector<Recruit> listRecruit();

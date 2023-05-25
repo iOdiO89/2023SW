@@ -19,10 +19,9 @@ public:
     static vector<Member*> memList;
     string getID();
     string getPW();
-    
+    int getIsCompanyMember();
+
     virtual void addNewRecruit(string, int, string);
     virtual vector<Recruit> listRecruit();
-
-
-    virtual ~Member();
+    virtual string getCompanyName();
 };
