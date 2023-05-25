@@ -12,6 +12,6 @@ using namespace std;
 class ShowRecruit
 {
 public:
-	vector<tuple<string, int, string>> showListOfRecruit(CompanyMember);
+	vector<tuple<string, int, string>> showListOfRecruit(Member*);
 };
 

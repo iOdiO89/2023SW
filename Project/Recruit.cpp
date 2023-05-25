@@ -1,6 +1,26 @@
 #include "Recruit.h"
 
-Recruit::Recruit(string inputCompanyName, int inputBusinessNum, string inputTask, int inputNumber, string inputDeadline) {
+string Recruit::getCompanyName()
+{
+    return companyName;
+}
+
+string Recruit::getTask()
+{
+    return task;
+}
+
+int Recruit::getNumber()
+{
+    return number;
+}
+
+string Recruit::getDeadline()
+{
+    return deadline;
+}
+
+Recruit::Recruit(string inputCompanyName, string inputBusinessNum, string inputTask, int inputNumber, string inputDeadline) {
 	companyName = inputCompanyName;
 	businessNum = inputBusinessNum;
 	task = inputTask;
@@ -8,6 +28,6 @@ Recruit::Recruit(string inputCompanyName, int inputBusinessNum, string inputTask
 	deadline = inputDeadline;
 }
 
-tuple<string, int, string, int, string> Recruit::getRecruitDetails() {
+tuple<string, string, string, int, string> Recruit::getRecruitDetails() {
 	return make_tuple(companyName, businessNum, task, number, deadline);
 }

@@ -6,11 +6,12 @@
 
 #include "AddRecruit.h"
 #include "CompanyMember.h"
+#include "Member.h"
 
 using namespace std;
 
 class AddRecruitUI {
 
 public:
-	void createRecruit(string, CompanyMember);
+	void createRecruit(string, Member*);
 };

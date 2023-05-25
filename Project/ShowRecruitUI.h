@@ -12,5 +12,5 @@ class ShowRecruitUI {
 private:
 	
 public:
-	void clickShowRecruit(CompanyMember);
+	void clickShowRecruit(Member*);
 };

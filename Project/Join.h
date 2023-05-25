@@ -1,20 +1,13 @@
-#ifndef JOIN_H
-#define JOIN_H
+#include <iostream>
+#include <tuple>
 
 #include "Member.h"
 #include "GeneralMember.h"
 #include "CompanyMember.h"
-#include <cstdio>
-#include <string>
 
-#define MAX_STRING 32
+using namespace std;
 
 class Join {
 public:
-    CompanyMember signUpCompanyMember(FILE* in_fp);
-    GeneralMember signUpGeneralMember(FILE* in_fp);
-    void writeToFile(const CompanyMember& companyMember, FILE* out_fp);
-    void writeToFile(const GeneralMember& generalMember, FILE* out_fp);
+	tuple<int, string, string, string, string> joinMem(int, string, string, string, string);
 };
-
-#endif

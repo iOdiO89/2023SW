@@ -1,13 +1,12 @@
-#ifndef LOGOUT_H
-#define LOGOUT_H
+#pragma once
+
+#include <iostream>
 
 #include "Member.h"
-#include <cstdio>
+
+using namespace std;
 
 class Logout {
 public:
-    void logout(Member& Member);
-    void writeToFile(Member& Member, FILE* out_fp);
+    string logoutMem(Member*);
 };
-
-#endif

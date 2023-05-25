@@ -2,25 +2,18 @@
 
 using namespace std;
 
-GeneralMember::GeneralMember(const string& name, const string& socialNumber, const string& id, const string& password)
-    : Member(id, password, UserType::General), name(name), socialNumber(socialNumber) {}
-
-UserType GeneralMember::getMemberType() const {
-    return UserType::General;
+GeneralMember::GeneralMember(string name, string securityNum, string ID, string PW) {
+	this->isCompanyMember = 2;
+	this->ID = ID;
+	this->PW = PW;
+	this->name = name;
+	this->securityNum = securityNum;
 }
 
-void GeneralMember::withdraw() {
-    loggedIn = false;
+vector<Application> GeneralMember::getApplicationArray() {
+	return this->applicationArray;
 }
 
-bool GeneralMember::isActive() const {
-    return loggedIn;
-}
-
-string GeneralMember::getName() const {
-    return name;
-}
-
-string GeneralMember::getSocialNumber() const {
-    return socialNumber;
-}
+void GeneralMember::setApplicationArray(vector<Application> applicationArray) {
+	this->applicationArray = applicationArray;
+}	

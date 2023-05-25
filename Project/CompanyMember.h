@@ -2,21 +2,25 @@
 #include <iostream>
 #include <vector>
 
+#include "Member.h"
 #include "Recruit.h"
 
 using namespace std;
 
-class CompanyMember {
+class CompanyMember : public Member {
 private:
 	string companyName;
-	int businessNum; 
+	string businessNum; 
 	vector<Recruit> recruitArray;
 
 public:
+	CompanyMember(string, string, string, string);
+	~CompanyMember();
+
 	CompanyMember(string, int);
 	CompanyMember(string, int, vector<Recruit>); // 삭제필요
-	string getCompanyName();
-	int getBusinessNum();
-	void addNewRecruit(string, int, string);
-	vector<Recruit> listRecruit();
+	virtual string getCompanyName();
+	virtual string getBusinessNum();
+	virtual void addNewRecruit(string, int, string);
+	virtual vector<Recruit> listRecruit();
 };

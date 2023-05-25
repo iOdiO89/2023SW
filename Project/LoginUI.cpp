@@ -1,14 +1,23 @@
 #include "LoginUI.h"
-#include <iostream>
 
-using namespace std;
+Member* LoginUI::inputID(string rest) {
+	string ID, PW;
+	stringstream ss(rest);
+	ss >> ID >> PW;
 
-void LoginUI::start(Member& Member, Login& l, const std::string& id, const std::string& password, FILE* out_fp) {
-    if (l.login(Member, id, password)) {
-        cout << "로그인에 성공하였습니다." << endl;
-        l.writeToFile(Member, out_fp);
-    }
-    else {
-        cout << "로그인에 실패하였습니다." << endl;
-    }
+	Login login;
+	tuple<string, string, Member*> loginInfo;
+	loginInfo = login.loginMem(ID, PW);
+	ID = get<0>(loginInfo);
+	PW = get<1>(loginInfo);
+	Member* member = get<2>(loginInfo);
+
+	fstream writeFile("output.txt", ios::app);
+	if (writeFile.is_open()) {
+		writeFile << "2.1. 로그인" << endl;
+		writeFile << "> " + ID + " " + PW << endl;
+		writeFile.close();
+	}
+
+	return member;
 }

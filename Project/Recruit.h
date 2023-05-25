@@ -1,20 +1,26 @@
-#pragma once
+ï»¿#pragma once
+
 #include <iostream>
 #include <tuple>
-#include <fstream>
-#include <string>
 
 using namespace std;
 
-class Recruit {
+class Recruit
+{
 private:
-	string companyName; // È¸»çÀÌ¸§
-	int businessNum; // »ç¾÷ÀÚ¹øÈ£
-	string task; // ¾÷¹«
-	int number; // ÀÎ¿ø¼ö
-	string deadline; // ¸¶°¨ÀÏ
+    string companyName; // íšŒì‚¬ì´ë¦„
+    string businessNum; // ì‚¬ì—…ìë²ˆí˜¸
+    string task; // ì—…ë¬´
+    int number; // ì¸ì›ìˆ˜
+    string deadline; // ë§ˆê°ì¼
 
 public:
-	Recruit(string companyName, int businessNum, string task, int number, string deadline);
-	tuple<string, int, string, int, string> getRecruitDetails();
+    string getCompanyName();
+    string getTask();
+    int getNumber();
+    string getDeadline();
+
+    Recruit(string companyName, string businessNum, string task, int number, string deadline);
+    tuple<string, string, string, int, string> getRecruitDetails();
+    // ë””í…Œì¼ íŠœí”Œë¡œ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
 };

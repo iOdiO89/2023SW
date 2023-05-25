@@ -1,5 +1,15 @@
 #include "CompanyMember.h"
 
+CompanyMember::CompanyMember(string companyName, string businessNum, string ID, string PW) {
+	this->isCompanyMember = 1;
+	this->ID = ID;
+	this->PW = PW;
+	this->companyName = companyName;
+	this->businessNum = businessNum;
+}
+
+CompanyMember::~CompanyMember() {
+}
 
 CompanyMember::CompanyMember(string inputCompanyName, int inputBusinessNum) {
 	companyName = inputCompanyName;
@@ -18,13 +28,13 @@ string CompanyMember::getCompanyName() {
 	return companyName;
 }
 
-int CompanyMember::getBusinessNum() {
+string CompanyMember::getBusinessNum() {
 	return businessNum;
 }
 
 void CompanyMember::addNewRecruit(string task, int number, string deadline) {
 	string companyName = getCompanyName();
-	int businessNum = getBusinessNum();
+	string businessNum = getBusinessNum();
 	Recruit newRecruit = Recruit(companyName, businessNum, task, number, deadline);
 	recruitArray.push_back(newRecruit);
 }
