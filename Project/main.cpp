@@ -15,10 +15,11 @@
 #include "LogoutUI.h" // 2.2. 로그아웃
 #include "AddRecruitUI.h" // 3.1. 채용 정보 등록
 #include "ShowRecruitUI.h" // 3.2. 등록된 채용 정보 조회
-#include "SearchRecruitUI.h" // 4.1 채용 정보 검색
+#include "SearchRecruitUI.h" // 4.1. 채용 정보 검색
 #include "ApplyRecruitUI.h" // 4.2. 채용 지원
-#include "SearchApplyUI.h" // 4.3 지원 정보 조회
-#include "CancelApplyUI.h" // 4.4 지원 취소
+#include "SearchApplyUI.h" // 4.3. 지원 정보 조회
+#include "CancelApplyUI.h" // 4.4. 지원 취소
+#include "StatsUI.h" // 5.1. 지원정보 통계
 
 
 #define INPUT_FILE_NAME "input.txt"
@@ -126,9 +127,9 @@ void doTask()
             break;
         case 5:
             switch (menuLevel2) {
-            case 1:
-                //StatsUI statsUI;
-                //statsUI.checkStats();
+            case 1: // 5.1. 지원 통계
+                StatsUI statsUI;
+                statsUI.checkStats(currentMember);
                 break;
             }
             break;
