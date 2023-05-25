@@ -1,15 +1,12 @@
-#ifndef LOGIN_H
-#define LOGIN_H
+#pragma once
+
+#include <iostream>
+#include <tuple>
+#include "Member.h"
 
 using namespace std;
 
-#include "Member.h"
-#include <cstdio>
-
 class Login {
 public:
-    bool login(Member& Member, const string& id, const string& password);
-    void writeToFile(Member& Member, FILE* out_fp);
+	tuple<string, string, Member*> loginMem(string, string);
 };
-
-#endif

@@ -1,16 +1,16 @@
 #include "Login.h"
 
-bool Login::login(Member& Member, const std::string& id, const std::string& password) {
-    if (Member.getId() == id && Member.getPassword() == password && Member.isActive()) {
-        Member.setLoggedIn(true);
-        return true;
-    }
-    return false;
-}
+tuple<string,string, Member*> Login::loginMem(string searchID, string searchPW) {
+	string ID="", PW = "";
+	int size = Member::memList.size();
+	for (int i = 0; i < size; i++) {
+		ID = Member::memList[i]->getID();
+		PW = Member::memList[i]->getPW();
 
-void Login::writeToFile(Member& Member, FILE* out_fp) {
-    if (out_fp) {
-        fprintf(out_fp, "%s %s\n", Member.getId().c_str(), Member.getPassword().c_str());
-        fflush(out_fp);
-    }
+		if (ID == searchID && PW == searchPW) { // 올바른 회원 정보를 찾으면 해당 회원정보를 반환
+			return make_tuple(ID, PW, Member::memList[i]);
+		}
+	}
+	Member* nullMember = NULL;
+	return make_tuple(ID, PW, nullMember); // 회원 리스트에 회원 정보가 없는 경우
 }

@@ -8,5 +8,5 @@ using namespace std;
 class AddRecruit {
 
 public:
-	void addNewRecruit(string, int, string, CompanyMember);
+	void addNewRecruit(string, int, string, Member*);
 };

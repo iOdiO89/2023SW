@@ -1,12 +1,13 @@
-#ifndef WITHDRAWALUI_H
-#define WITHDRAWALUI_H
+#pragma once
+
+#include <iostream>
+#include <fstream>
 
 #include "Withdrawal.h"
-#include <cstdio>
+
+using namespace std;
 
 class WithdrawalUI {
 public:
-    void start(Member& Member, Withdrawal& w, FILE* out_fp);
+    void clickWDButton(Member*);
 };
-
-#endif 

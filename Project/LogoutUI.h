@@ -1,12 +1,15 @@
-#ifndef LOGOUTUI_H
-#define LOGOUTUI_H
+#pragma once
+
+#include <iostream>
+#include <fstream>
 
 #include "Logout.h"
-#include <cstdio>
+
+
+using namespace std;
 
 class LogoutUI {
 public:
-    void start(Member& Member, Logout& lo, FILE* out_fp);
+    void clickLogoutButton(Member*);
+    
 };
-
-#endif 

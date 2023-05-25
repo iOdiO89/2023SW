@@ -141,25 +141,50 @@
   <ItemGroup>
     <ClCompile Include="AddRecruit.cpp" />
     <ClCompile Include="AddRecruitUI.cpp" />
+    <ClCompile Include="application.cpp" />
     <ClCompile Include="CompanyMember.cpp" />
     <ClCompile Include="GeneralMember.cpp" />
+    <ClCompile Include="Join.cpp" />
+    <ClCompile Include="JoinUI.cpp" />
+    <ClCompile Include="Login.cpp" />
+    <ClCompile Include="LoginUI.cpp" />
+    <ClCompile Include="Logout.cpp" />
+    <ClCompile Include="LogoutUI.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Member.cpp" />
     <ClCompile Include="Recruit.cpp" />
+    <ClCompile Include="Stats.cpp" />
+    <ClCompile Include="StatsUI.cpp" />
     <ClCompile Include="ShowRecruit.cpp" />
-    <ClCompile Include="ShowRecruitInfo.cpp" />
-    <ClCompile Include="ShowRecruitInfoUI.cpp" />
+    <ClCompile Include="SearchRecruit.cpp" />
+    <ClCompile Include="SearchRecruitUI.cpp" />
     <ClCompile Include="ShowRecruitUI.cpp" />
+    <ClCompile Include="Withdrawal.cpp" />
+    <ClCompile Include="WithdrawalUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddRecruit.h" />
     <ClInclude Include="AddRecruitUI.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="ApplicationCollection.h" />
     <ClInclude Include="CompanyMember.h" />
     <ClInclude Include="GeneralMember.h" />
+    <ClInclude Include="Join.h" />
+    <ClInclude Include="JoinUI.h" />
+    <ClInclude Include="Login.h" />
+    <ClInclude Include="LoginUI.h" />
+    <ClInclude Include="Logout.h" />
+    <ClInclude Include="LogoutUI.h" />
+    <ClInclude Include="Member.h" />
     <ClInclude Include="Recruit.h" />
+    <ClInclude Include="Stats.h" />
+    <ClInclude Include="StatsUI.h" />
     <ClInclude Include="ShowRecruit.h" />
-    <ClInclude Include="ShowRecruitInfo.h" />
-    <ClInclude Include="ShowRecruitInfoUI.h" />
+    <ClInclude Include="SearchRecruit.h" />
+    <ClInclude Include="SearchRecruitUI.h" />
     <ClInclude Include="ShowRecruitUI.h" />
+    <ClInclude Include="Withdrawal.h" />
+    <ClInclude Include="WithdrawalUI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

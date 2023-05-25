@@ -1,12 +1,14 @@
-#ifndef JOINUI_H
-#define JOINUI_H
+#include <iostream>
+#include <sstream>
+#include <string>
 
 #include "Join.h"
-#include <cstdio>
+#include "GeneralMember.h"
+#include "CompanyMember.h"
+
+using namespace std;
 
 class JoinUI {
 public:
-    void start(Join& j, FILE* in_fp, FILE* out_fp);
+    void clickJoinButton(string);
 };
-
-#endif

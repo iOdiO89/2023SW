@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class ShowRecruitInfo
+class SearchRecruit
 {
 public:
 	vector<tuple<string, int, string, int, string>> callRecruitInfo(string);

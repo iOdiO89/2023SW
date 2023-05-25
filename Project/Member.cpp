@@ -1,22 +1,23 @@
 #include "Member.h"
 
-using namespace std;
+vector<Member*> Member::memList; // static 변수는 클래스 외부에서 선언 및 초기화 해야 함
 
-Member::Member(const string& id, const string& password, UserType MemberType)
-    : id(id), password(password), loggedIn(false), MemberType(MemberType) {}
-
-string Member::getId() const {
-    return id;
+string Member::getID() {
+	return this->ID;
 }
 
-string Member::getPassword() const {
-    return password;
+string Member::getPW() {
+	return this->PW;
 }
 
-bool Member::isLoggedIn() const {
-    return loggedIn;
+void Member::addNewRecruit(string, int, string) {
+	return;
 }
 
-void Member::setLoggedIn(bool loggedIn) {
-    this->loggedIn = loggedIn;
+vector<Recruit> Member::listRecruit() {
+	vector<Recruit> nullRecruitVector;
+	return nullRecruitVector;
+}
+
+Member::~Member() {
 }

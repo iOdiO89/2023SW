@@ -4,13 +4,13 @@
 #include <vector>
 #include <string>
 
-#include "ShowRecruitInfo.h"
+#include "SearchRecruit.h"
 
 using namespace std;
 
-class ShowRecruitInfoUI
+class SearchRecruitUI
 {
 public:
-	void clickShowRecruitInfo(string);
+	void clickSearchRecruit(string);
 };
 

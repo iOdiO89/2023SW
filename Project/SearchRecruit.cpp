@@ -1,6 +1,6 @@
-#include "ShowRecruitInfo.h"
+#include "SearchRecruit.h"
 
-vector<tuple<string, int, string, int ,string>> ShowRecruitInfo::callRecruitInfo(string companyName) {
+vector<tuple<string, int, string, int ,string>> SearchRecruit::callRecruitInfo(string companyName) {
 	CompanyMember companyMember("회사회원", 3456); // 수정필요
 	vector<Recruit> recruitInstance = companyMember.listRecruit();
 

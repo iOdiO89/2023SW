@@ -2,14 +2,16 @@
 
 #include <iostream>
 
+#include "Member.h"
+
 using namespace std;
 
-class GeneralMember
-{
+class GeneralMember: public Member{
 private:
 	string name;
 	int securityNum;
 public:
-	GeneralMember(string, int);
+	GeneralMember(string, int, string, string);
+
 };
 

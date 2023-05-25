@@ -3,8 +3,14 @@
 
 using namespace std;
 
-void LogoutUI::start(Member& Member, Logout& lo, FILE* out_fp) {
-    lo.logout(Member);
-    cout << "로그아웃 되었습니다." << endl;
-    lo.writeToFile(Member, out_fp);
+void LogoutUI::clickLogoutButton(Member* currentMember) {
+	Logout logout;
+	string ID = logout.logoutMem(currentMember);
+
+	fstream writeFile("output.txt", ios::app);
+	if (writeFile.is_open()) {
+		writeFile << "2.2. 로그아웃" << endl;
+		writeFile << "> " + ID << endl;
+		writeFile.close();
+	}
 }

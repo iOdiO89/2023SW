@@ -1,5 +1,15 @@
 #include "CompanyMember.h"
 
+CompanyMember::CompanyMember(string companyName, int businessNum, string ID, string PW) {
+	this->isCompanyMember = 1;
+	this->ID = ID;
+	this->PW = PW;
+	this->companyName = companyName;
+	this->businessNum = businessNum;
+}
+
+CompanyMember::~CompanyMember() {
+}
 
 CompanyMember::CompanyMember(string inputCompanyName, int inputBusinessNum) {
 	companyName = inputCompanyName;

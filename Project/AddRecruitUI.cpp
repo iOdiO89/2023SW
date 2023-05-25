@@ -1,13 +1,13 @@
 #include "AddRecruitUI.h"
 
-void AddRecruitUI::createRecruit(string rest, CompanyMember companyMember) {
+void AddRecruitUI::createRecruit(string rest, Member* currentMember) {
 	stringstream ss(rest);
 	string task, deadline;
 	int number;
 	ss >> task >> number >> deadline;
 
 	AddRecruit addRecruit;
-	addRecruit.addNewRecruit(task, number, deadline, companyMember);
+	addRecruit.addNewRecruit(task, number, deadline, currentMember);
 
 	string line;
 	string strNumber;

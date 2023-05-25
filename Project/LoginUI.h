@@ -1,14 +1,16 @@
-#ifndef LOGINUI_H
-#define LOGINUI_H
+#pragma once
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <tuple>
+
+#include "Member.h"
+#include "Login.h"
 
 using namespace std;
 
-#include "Login.h"
-#include <cstdio>
-
 class LoginUI {
 public:
-    void start(Member& Member, Login& l, const string& id, const string& password, FILE* out_fp);
+	Member* inputID(string);
 };
-
-#endif 

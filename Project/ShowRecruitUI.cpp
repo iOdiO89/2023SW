@@ -1,10 +1,10 @@
 #include "ShowRecruitUI.h"
 #include "ShowRecruit.h"
 
-void ShowRecruitUI::clickShowRecruit(CompanyMember companyMember) {
+void ShowRecruitUI::clickShowRecruit(Member* currentMember) {
 	ShowRecruit showRecruit;
 	vector<tuple<string, int, string>> recruitDetail;
-	recruitDetail = showRecruit.showListOfRecruit(companyMember);
+	recruitDetail = showRecruit.showListOfRecruit(currentMember);
 
 	string line;
 	string task, number, deadline;

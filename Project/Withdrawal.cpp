@@ -1,12 +1,17 @@
 #include "Withdrawal.h"
 
-void Withdrawal::executeWithdrawal(Member& Member) {
-    Member.withdraw();
+string Withdrawal::withdrawalMem(Member* currentMember) {
+    string ID = currentMember->getID();
+
+    int size = Member::memList.size();
+    for (int i = 0; i < size; i++) {
+        if (currentMember == Member::memList[i]) {
+            Member::memList.erase(Member::memList.begin() + i); // 회원 정보 리스트에서 삭제
+        }
+
+    }
+
+    delete currentMember;
+    return ID;
 }
 
-void Withdrawal::writeToFile(Member& Member, FILE* out_fp) {
-    if (out_fp) {
-        fprintf(out_fp, "%s\n", Member.getId().c_str());
-        fflush(out_fp);
-    }
-}

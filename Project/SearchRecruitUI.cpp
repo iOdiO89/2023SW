@@ -1,9 +1,9 @@
-#include "ShowRecruitInfoUI.h"
+#include "SearchRecruitUI.h"
 
-void ShowRecruitInfoUI::clickShowRecruitInfo(string inputCompanyName) {
-	ShowRecruitInfo showRecruitInfo;
+void SearchRecruitUI::clickSearchRecruit(string inputCompanyName) {
+	SearchRecruit searchRecruit;
 	vector<tuple<string, int, string, int, string>> recruitDetail;
-	recruitDetail = showRecruitInfo.callRecruitInfo(inputCompanyName);
+	recruitDetail = searchRecruit.callRecruitInfo(inputCompanyName);
 	
 	string line;
 	string companyName, businessNum, task, number, deadline;

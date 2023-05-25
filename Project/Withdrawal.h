@@ -1,13 +1,12 @@
-#ifndef WITHDRAWAL_H
-#define WITHDRAWAL_H
+#pragma once
+
+#include <iostream>
 
 #include "Member.h"
-#include <cstdio>
+
+using namespace std;
 
 class Withdrawal {
 public:
-    void executeWithdrawal(Member& Member);
-    void writeToFile(Member& Member, FILE* out_fp);
+	string withdrawalMem(Member*);
 };
-
-#endif

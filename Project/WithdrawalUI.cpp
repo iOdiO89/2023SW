@@ -1,10 +1,13 @@
 #include "WithdrawalUI.h"
-#include <iostream>
 
-using namespace std;
+void WithdrawalUI::clickWDButton(Member* currentMember) {
+	Withdrawal withdrawal;
+	string ID = withdrawal.withdrawalMem(currentMember);
 
-void WithdrawalUI::start(Member& Member, Withdrawal& w, FILE* out_fp) {
-    w.executeWithdrawal(Member);
-    cout << "È¸¿ø Å»Åð°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù." << endl;
-    w.writeToFile(Member, out_fp);
+	fstream writeFile("output.txt", ios::app);
+	if (writeFile.is_open()) {
+		writeFile << "1.2. È¸¿øÅ»Åð" << endl;
+		writeFile << "> " + ID << endl;
+		writeFile.close();
+	}
 }
