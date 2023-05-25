@@ -1,11 +1,11 @@
-//#pragma once
-//#include <iostream>
-//#include "CompanyMember.h"
-//#include "GeneralMember.h"
-//#include "Application.h"
-//
-//class Stats
-//{
-//public:
-//	void showStats();
-//};
+#pragma once
+#include <iostream>
+#include <tuple>
+
+#include "Member.h"
+
+class Stats
+{
+public:
+	tuple<string,string> showStats(Member*);
+};
