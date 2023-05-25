@@ -15,7 +15,7 @@ void StatsUI::checkStats(Member* currentMember)
         for (int i = 0; i < statInfo.size(); i++) {
             string task = get<0>(statInfo[i]);
             string count = get<1>(statInfo[i]);
-            line = "> " + task + count;
+            line = "> " + task + " " + count;
             writeFile << line << endl; //text 파일에 작성
             line = "";
         }

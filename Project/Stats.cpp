@@ -59,11 +59,11 @@ vector<tuple<string, string>> Stats::showStats(Member* currentMember)
         sort(taskVectorUnique.begin(), taskVectorUnique.end());
         taskVectorUnique.erase(unique(taskVectorUnique.begin(), taskVectorUnique.end()), taskVectorUnique.end());
 
-        vector<tuple<string, string>> statsRes(taskVectorUnique.size());
+        vector<tuple<string, string>> statsRes;
         int countStats = 0;
         string sCountStats;
         // 가지고 있는 모든 지원정보를 확인하면서 업무별로 지원횟수 통계 내기
-        for (int i = 0; i < taskVector.size(); i++) {
+        for (int i = 0; i < taskVectorUnique.size(); i++) {
             countStats = count(taskVector.begin(), taskVector.end(), taskVectorUnique[i]);
             sCountStats = to_string(countStats);
             statsRes.push_back(make_tuple(taskVectorUnique[i], sCountStats));

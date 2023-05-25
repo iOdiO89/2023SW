@@ -17,8 +17,6 @@ public:
 	CompanyMember(string, string, string, string);
 	~CompanyMember();
 
-	CompanyMember(string, int);
-	CompanyMember(string, int, vector<Recruit>); // 삭제필요
 	virtual string getCompanyName();
 	virtual string getBusinessNum();
 	virtual void addNewRecruit(string, int, string);

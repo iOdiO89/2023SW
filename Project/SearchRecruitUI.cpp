@@ -23,7 +23,7 @@ void SearchRecruitUI::clickSearchRecruit(string searchCompanyName)
             number = to_string(get<3>(recruitInfo[i])) + " ";
             deadline = get<4>(recruitInfo[i]);
 
-            line = companyName + businessNum + task + number + deadline;
+            line = "> " + companyName + businessNum + task + number + deadline;
             writeFile << line << endl;
         }
         writeFile.close();

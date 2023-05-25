@@ -15,7 +15,6 @@ protected:
     string PW;
     int isCompanyMember; // 1 = 회사회원, 2 = 일반회원
 
-
 public:
     static vector<Member*> memList;
     string getID();

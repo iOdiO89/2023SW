@@ -9,16 +9,6 @@ CompanyMember::CompanyMember(string companyName, string businessNum, string ID, 
 	this->businessNum = businessNum;
 }
 
-// 소멸자
-CompanyMember::~CompanyMember() {
-}
-
-CompanyMember::CompanyMember(string inputCompanyName, int inputBusinessNum) {
-	companyName = inputCompanyName;
-	businessNum = inputBusinessNum;
-	//벡터는 size = 0 인 벡터 자동생성
-}
-
 string CompanyMember::getCompanyName() { // 객체의 회사이름 반환
 	return companyName;
 }
