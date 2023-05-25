@@ -1,6 +1,6 @@
 #include "Join.h"
 
-tuple<int, string, int, string, string> Join::joinMem(int isCompanyMember, string temp1, int temp2, string ID, string PW) {
+tuple<int, string, string, string, string> Join::joinMem(int isCompanyMember, string temp1, string temp2, string ID, string PW) {
 	if (isCompanyMember==1) {
 		CompanyMember *newCompanyMember = new CompanyMember(temp1, temp2, ID, PW);
 		Member::memList.push_back(newCompanyMember);

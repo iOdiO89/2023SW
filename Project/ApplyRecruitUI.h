@@ -1,7 +1,16 @@
+#pragma once
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <string>
+
 #include "ApplyRecruit.h"
+#include "Member.h"
+
+using namespace std;
 
 class ApplyRecruitUI
 {
 public:
-    void applyNewRecruit(string ID, FILE *in_fp, FILE *out_fp);
+    void applyNewRecruit(string, Member*);
 };

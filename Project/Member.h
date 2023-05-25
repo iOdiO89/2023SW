@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "Recruit.h"
+#include "Application.h"
 
 using namespace std;
 
@@ -21,7 +22,15 @@ public:
     string getPW();
     int getIsCompanyMember();
 
+    // 회사회원용
     virtual void addNewRecruit(string, int, string);
     virtual vector<Recruit> listRecruit();
     virtual string getCompanyName();
+    virtual string getBusinessNum();
+    virtual string getTask();
+
+    //일반회원용
+    virtual vector<Application> getApplicationArray();
+    virtual void setApplicationArray(vector<Application>);
+
 };

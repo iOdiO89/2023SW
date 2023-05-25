@@ -3,20 +3,23 @@
 #include <string>
 #include <vector>
 
+#include "Member.h"
 #include "CompanyMember.h" 
+#include "GeneralMember.h"
 #include "Recruit.h" 
 #include "Application.h"
-#include "GeneralMember.h"
-#include "Member.h"
 
 #include "JoinUI.h" // 1.1. 회원가입
 #include "WithdrawalUI.h" // 1.2. 회원탈퇴
 #include "LoginUI.h" // 2.1. 로그인
 #include "LogoutUI.h" // 2.2. 로그아웃
-#include "ApplicationCollection.h"
-#include "AddRecruitUI.h"
-#include "ShowRecruitUI.h"
-#include "SearchRecruitUI.h"
+#include "AddRecruitUI.h" // 3.1. 채용 정보 등록
+#include "ShowRecruitUI.h" // 3.2. 등록된 채용 정보 조회
+#include "SearchRecruitUI.h" // 4.1 채용 정보 검색
+#include "ApplyRecruitUI.h" // 4.2. 채용 지원
+#include "SearchApplyUI.h" // 4.3 지원 정보 조회
+#include "CancelApplyUI.h" // 4.4 지원 취소
+
 
 #define INPUT_FILE_NAME "input.txt"
 ifstream readFile(INPUT_FILE_NAME);
@@ -39,11 +42,6 @@ int main()
 
 void doTask()
 {
-    Recruit newRecruit("회사이름", 3456, "accounting", 2, "2023/05/22");
-    vector<Recruit> recruit;
-    recruit.push_back(newRecruit);
-    CompanyMember companyMember("회사회원", 3456, recruit); // 임시 생성
-
     // 메뉴 파싱을 위한 level 구분을 위한 변수
     int menuLevel1 = 0, menuLevel2 = 2;
     int is_program_exit = 0;
@@ -88,11 +86,11 @@ void doTask()
             break;
         case 3:
             switch (menuLevel2) {
-            case 1:
+            case 1: // 3.1. 채용 정보 등록
                 AddRecruitUI addRecruitUI;
                 addRecruitUI.createRecruit(rest, currentMember);
                 break;
-            case 2:
+            case 2: // 3.2. 등록된 채용 정보 조회
                 ShowRecruitUI showRecruitUI;
                 showRecruitUI.clickShowRecruit(currentMember);
                 break;
@@ -100,11 +98,31 @@ void doTask()
             break;
         case 4:
             switch (menuLevel2) {
-            case 1:
+            case 1: // 4.1. 채용 정보 검색
+            {
                 SearchRecruitUI searchRecruitUI;
                 searchRecruitUI.clickSearchRecruit(rest);
                 break;
             }
+            case 2: // 4.2. 채용 지원
+            {
+                ApplyRecruitUI* ARUI = new ApplyRecruitUI();
+                ARUI->applyNewRecruit(rest, currentMember);
+                break;
+            }
+
+            case 3: // 4.3. 지원 정보 조회
+            {
+                SearchApplyUI* SAUI = new SearchApplyUI();
+                SAUI->searchApplication(currentMember);
+                break;
+            }
+            case 4: // 4.4 지원 취소
+            {
+                CancelApplyUI* CAUI = new CancelApplyUI();
+                CAUI->selectApplication(rest, currentMember);
+                break;
+            }}
             break;
         case 5:
             switch (menuLevel2) {
@@ -117,7 +135,7 @@ void doTask()
         case 6:
             switch (menuLevel2)
             {
-            case 1:   // "6.1. 종료“ 메뉴 부분
+            case 1:   // 6.1. 종료
                 program_exit();
                 is_program_exit = 1;
                 break;
@@ -129,6 +147,10 @@ void doTask()
 }
 
 void program_exit(){
-    cout << "프로그램 종료" << endl;
+    fstream writeFile("output.txt", ios::app);
+    if (writeFile.is_open()) {
+        writeFile << "6.1. 종료" << endl;
+        writeFile.close();
+    }
     exit(0);
 }

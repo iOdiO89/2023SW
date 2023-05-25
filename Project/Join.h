@@ -9,5 +9,5 @@ using namespace std;
 
 class Join {
 public:
-	tuple<int, string, int, string, string> joinMem(int, string, int, string, string);
+	tuple<int, string, string, string, string> joinMem(int, string, string, string, string);
 };

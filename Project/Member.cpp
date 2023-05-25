@@ -26,3 +26,21 @@ vector<Recruit> Member::listRecruit() {
 string Member::getCompanyName(){
 	return "";
 }
+
+string Member::getBusinessNum() {
+	return "";
+}
+
+string Member::getTask() {
+	return "";
+}
+
+//일반회원용
+vector<Application> Member::getApplicationArray() {
+	vector<Application> nullApplicationVector;
+	return nullApplicationVector;
+}
+
+void Member::setApplicationArray(vector<Application>) {
+	return;
+}

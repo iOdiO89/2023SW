@@ -141,7 +141,11 @@
   <ItemGroup>
     <ClCompile Include="AddRecruit.cpp" />
     <ClCompile Include="AddRecruitUI.cpp" />
-    <ClCompile Include="application.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="ApplyRecruit.cpp" />
+    <ClCompile Include="ApplyRecruitUI.cpp" />
+    <ClCompile Include="CancelApply.cpp" />
+    <ClCompile Include="CancelApplyUI.cpp" />
     <ClCompile Include="CompanyMember.cpp" />
     <ClCompile Include="GeneralMember.cpp" />
     <ClCompile Include="Join.cpp" />
@@ -153,6 +157,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Member.cpp" />
     <ClCompile Include="Recruit.cpp" />
+    <ClCompile Include="SearchApply.cpp" />
+    <ClCompile Include="SearchApplyUI.cpp" />
     <ClCompile Include="Stats.cpp" />
     <ClCompile Include="StatsUI.cpp" />
     <ClCompile Include="ShowRecruit.cpp" />
@@ -167,6 +173,10 @@
     <ClInclude Include="AddRecruitUI.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="ApplicationCollection.h" />
+    <ClInclude Include="ApplyRecruit.h" />
+    <ClInclude Include="ApplyRecruitUI.h" />
+    <ClInclude Include="CancelApply.h" />
+    <ClInclude Include="CancelApplyUI.h" />
     <ClInclude Include="CompanyMember.h" />
     <ClInclude Include="GeneralMember.h" />
     <ClInclude Include="Join.h" />
@@ -177,6 +187,8 @@
     <ClInclude Include="LogoutUI.h" />
     <ClInclude Include="Member.h" />
     <ClInclude Include="Recruit.h" />
+    <ClInclude Include="SearchApply.h" />
+    <ClInclude Include="SearchApplyUI.h" />
     <ClInclude Include="Stats.h" />
     <ClInclude Include="StatsUI.h" />
     <ClInclude Include="ShowRecruit.h" />

@@ -1,7 +1,16 @@
+#pragma once
+
+#include <iostream>
+#include <fstream>
+
 #include "CancelApply.h"
+#include "Member.h"
+
+
+using namespace std;
 
 class CancelApplyUI
 {
 public:
-    void selectApplication(string ID, FILE *in_fp, FILE *out_fp);
+    void selectApplication(string, Member*);
 };

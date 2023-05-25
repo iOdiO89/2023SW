@@ -2,21 +2,21 @@
 #include "GeneralMember.h"
 #include "ApplicationCollection.h"
 
-tuple<string, string, string> CancelApply::cancelApplication(string ID, string businessNum)
+tuple<string, string, string> CancelApply::cancelApplication(string searchBusinessNum, Member* currentMember)
 {
-    GeneralMember GM;
-    vector<GeneralMember> arrGM = ownedGM->getArrGM();
+    vector<Application> applicationInfo = currentMember->getApplicationArray();
+    string companyName, businessNum, task;
 
-    for (int i = 0; i < arrGM.size(); i++)
-    {
-        GM = arrGM[i];
-        if (GM.getID() == ID)
-        {
-            ApplicationCollection AC = GM.getAC();
-            tuple<string, string, string> tp = AC.deleteApply(businessNum);
-            arrGM[i].setOwnAC(AC);
-            ownedGM->setArrGM(arrGM);
-            return tp;
+    for (int i = 0; i < applicationInfo.size(); i++) {
+        if (applicationInfo[i].getBusinessNum() == searchBusinessNum) {
+            companyName = applicationInfo[i].getCompanyName();
+            businessNum = applicationInfo[i].getBusinessNum();
+            task = applicationInfo[i].getTask(); 
+
+            applicationInfo.erase(applicationInfo.begin() + i);
+            currentMember->setApplicationArray(applicationInfo);
+
+            return make_tuple(companyName, businessNum, task);
         }
     }
 }

@@ -1,15 +1,15 @@
-#include "ApplyRecruitUI.h"
-#include <vector>
+﻿#include "ApplyRecruitUI.h"
 
-void ApplyRecruitUI ::applyNewRecruit(string ID, FILE *in_fp, FILE *out_fp)
+void ApplyRecruitUI ::applyNewRecruit(string businessNum, Member* currentMember)
 {
-    string businessNum;
-    fscanf(in_fp, "%s", businessNum);
+	vector<string> getInfo;
+    ApplyRecruit* AR = new ApplyRecruit();
+    getInfo = AR->newRecruit(businessNum, currentMember);
 
-    fprintf(out_fp, "4.2. 채용 지원\n");
-
-    vector<string> getInfo;
-    ApplyRecruit *AR = new ApplyRecruit();
-    getInfo = AR->newRecruit(ID, businessNum);
-    fprintf(out_fp, "> %s %s %s\n", getInfo[0], getInfo[1], getInfo[2]);
+	fstream writeFile("output.txt", ios::app);
+	if (writeFile.is_open()) {
+		writeFile << "4.2. 채용 지원" << endl;
+		writeFile << "> " + getInfo[0] + " " + getInfo[1] + " " + getInfo[2] << endl;
+		writeFile.close();
+	}
 }

@@ -1,25 +1,30 @@
-#include "SearchRecruitUI.h"
+ï»¿#include "SearchRecruitUI.h"
 
-void SearchRecruitUI::clickSearchRecruit(string inputCompanyName) {
-	SearchRecruit searchRecruit;
-	vector<tuple<string, int, string, int, string>> recruitDetail;
-	recruitDetail = searchRecruit.callRecruitInfo(inputCompanyName);
-	
-	string line;
-	string companyName, businessNum, task, number, deadline;
-	fstream writeFile("output.txt", ios::app);
-	if (writeFile.is_open()) {
-		writeFile << "4.1. Ã¤¿ë Á¤º¸ °Ë»ö" << endl;
-		for (int i = 0; i < recruitDetail.size(); i++) {
-			companyName = get<0>(recruitDetail[i]) + " "; // È¸»çÀÌ¸§
-			businessNum = to_string(get<1>(recruitDetail[i])) + " "; // »ç¾÷ÀÚ¹øÈ£
-			task = get<2>(recruitDetail[i]) + " "; // ¾÷¹«
-			number = to_string(get<3>(recruitDetail[i])) + " "; // ÀÎ¿ø¼ö
-			deadline = get<4>(recruitDetail[i]); // ¸¶°¨ÀÏ
-			line = "> " + companyName + businessNum + task + number + deadline;
 
-			writeFile << line << endl; // txt ÆÄÀÏ¿¡ ÀÛ¼º
-		}
-		writeFile.close();
-	}
+void SearchRecruitUI::clickSearchRecruit(string searchCompanyName)
+{   
+    SearchRecruit searchRecruit;
+    vector<tuple<string, string, string, int, string>> recruitInfo;
+
+    recruitInfo = searchRecruit.callRecruitInfo(searchCompanyName);
+
+    string companyName, businessNum, task, number, deadline;
+    string line;
+
+    fstream writeFile("output.txt", ios::app);
+    if (writeFile.is_open()) {
+        writeFile << "4.1. ì±„ìš© ì •ë³´ ê²€ìƒ‰" << endl;
+
+        for (int i = 0; i < recruitInfo.size(); i++) {
+            companyName = get<0>(recruitInfo[i]) + " ";
+            businessNum = get<1>(recruitInfo[i]) + " ";
+            task = get<2>(recruitInfo[i]) + " ";
+            number = to_string(get<3>(recruitInfo[i])) + " ";
+            deadline = get<4>(recruitInfo[i]);
+
+            line = companyName + businessNum + task + number + deadline;
+            writeFile << line << endl;
+        }
+        writeFile.close();
+    }
 }

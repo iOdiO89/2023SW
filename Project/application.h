@@ -1,18 +1,23 @@
 #pragma once
-#include <iostream>
-#include <string.h>
-#include <tuple>
 
+#include <iostream>
+#include <string>
 using namespace std;
 
 class Application
 {
 private:
-	string companyName;
-	string task;
-	string number;
-	string deadline;
+    string companyName;
+    string businessNum;
+    string task;
+    int number;
+    string deadline;
+
 public:
-	Application(string inputCompanyName, string inputTask, string inputNumber, string inputDeadline);
-	tuple<string, string, string, string> GetApplicationDetails();
+    Application(string companyName, string businessNum, string task, int number, string deadline);
+    string getCompanyName();
+    string getBusinessNum();
+    string getTask();
+    int getNumber();
+    string getDeadline();
 };

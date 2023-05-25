@@ -10,17 +10,17 @@ using namespace std;
 class CompanyMember : public Member {
 private:
 	string companyName;
-	int businessNum; 
+	string businessNum; 
 	vector<Recruit> recruitArray;
 
 public:
-	CompanyMember(string, int, string, string);
+	CompanyMember(string, string, string, string);
 	~CompanyMember();
 
 	CompanyMember(string, int);
 	CompanyMember(string, int, vector<Recruit>); // 삭제필요
 	virtual string getCompanyName();
-	int getBusinessNum();
+	virtual string getBusinessNum();
 	virtual void addNewRecruit(string, int, string);
 	virtual vector<Recruit> listRecruit();
 };

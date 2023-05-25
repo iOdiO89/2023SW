@@ -1,14 +1,35 @@
-#include "application.h"
+#include "Application.h"
 
-Application::Application(string inputCompanyName, string inputTask, string inputNumber, string inputDeadline)
+Application::Application(string companyName, string businessNum, string task, int number, string deadline)
 {
-	companyName = inputCompanyName;
-	task = inputTask;
-	number = inputNumber;
-	deadline = inputDeadline;
+    this->companyName = companyName;
+    this->businessNum = businessNum;
+    this->task = task;
+    this->number = number;
+    this->deadline = deadline;
 }
 
-tuple<string, string, string, string> Application::GetApplicationDetails()
+string Application::getCompanyName()
 {
-	return make_tuple(companyName, task, number, deadline);
+    return companyName;
+}
+
+string Application::getBusinessNum()
+{
+    return businessNum;
+}
+
+string Application::getTask()
+{
+    return task;
+}
+
+int Application::getNumber()
+{
+    return number;
+}
+
+string Application::getDeadline()
+{
+    return deadline;
 }

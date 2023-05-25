@@ -10,6 +10,6 @@ using namespace std;
 class SearchRecruit
 {
 public:
-	vector<tuple<string, int, string, int, string>> callRecruitInfo(string);
+	vector<tuple<string, string, string, int, string>> callRecruitInfo(string);
 };
 

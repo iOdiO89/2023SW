@@ -19,3 +19,15 @@ string Recruit::getDeadline()
 {
     return deadline;
 }
+
+Recruit::Recruit(string inputCompanyName, string inputBusinessNum, string inputTask, int inputNumber, string inputDeadline) {
+	companyName = inputCompanyName;
+	businessNum = inputBusinessNum;
+	task = inputTask;
+	number = inputNumber;
+	deadline = inputDeadline;
+}
+
+tuple<string, string, string, int, string> Recruit::getRecruitDetails() {
+	return make_tuple(companyName, businessNum, task, number, deadline);
+}

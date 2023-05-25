@@ -1,14 +1,16 @@
-#include "CancelApplyUI.h"
+﻿#include "CancelApplyUI.h"
 
-void CancelApplyUI::selectApplication(string ID, FILE *in_fp, FILE *out_fp)
+void CancelApplyUI::selectApplication(string businessNum, Member* currentMember)
 {
-    string businessNum;
-    fscanf(in_fp, "%s", businessNum);
-
-    fprintf(out_fp, "4.2. 지원 취소\n");
-
     tuple<string, string, string> getInfo;
     CancelApply *CA = new CancelApply();
-    getInfo = CA->cancelApplication(ID, businessNum);
-    fprintf(out_fp, "> %s %s %s %d %s\n", get<0>(getInfo), get<1>(getInfo), get<2>(getInfo));
+    getInfo = CA->cancelApplication(businessNum, currentMember);
+   
+    fstream writeFile("output.txt", ios::app);
+    if (writeFile.is_open()) {
+        writeFile << "4.4. 지원 취소" << endl;
+        writeFile << get<0>(getInfo) + " " + get<1>(getInfo) + " " + get<2>(getInfo) << endl;
+
+        writeFile.close();
+    }
 }

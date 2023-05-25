@@ -1,19 +1,22 @@
-#include "SearchApply.h"
-#include "GeneralMember.h"
-#include "ApplicationCollection.h"
+﻿#include "SearchApply.h"
 
-vector<Application> SearchApply::showMemberApplication(string ID)
+
+vector<tuple<string, string, string, int, string>> SearchApply::showMemberApplication(Member* currentMember)
 {
-    GeneralMember GM;
-    vector<GeneralMember> arrGM = ownedGM->getArrGM();
-    for (int i = 0; i < arrGM.size(); i++)
-    {
-        GM = ownedGM[i];
-        if (GM.getID() == ID)
-            break;
+    vector<Application> applicationInfo = currentMember->getApplicationArray();
+    vector<tuple<string, string, string, int, string>> applicationDetail;
+    
+    string companyName, businessNum, task, deadline;
+    int number;
+    for (int i = 0; i < applicationInfo.size(); i++) {
+        companyName = applicationInfo[i].getCompanyName();
+        businessNum = applicationInfo[i].getBusinessNum();
+        task = applicationInfo[i].getTask();
+        number = applicationInfo[i].getNumber();
+        deadline = applicationInfo[i].getDeadline();
+
+        applicationDetail.push_back(make_tuple(companyName, businessNum, task, number, deadline));
     }
 
-    ApplicationCollection AC = GM.getAC();
-    vector<Application> arrAC = AC.getArrAC();
-    return arrAC;
+    return applicationDetail;
 }

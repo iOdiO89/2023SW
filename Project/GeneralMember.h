@@ -3,15 +3,19 @@
 #include <iostream>
 
 #include "Member.h"
+#include "Application.h"
 
 using namespace std;
 
 class GeneralMember: public Member{
 private:
 	string name;
-	int securityNum;
+	string securityNum;
+	vector<Application> applicationArray;
 public:
-	GeneralMember(string, int, string, string);
+	GeneralMember(string, string, string, string);
+	vector<Application> getApplicationArray();
+	void setApplicationArray(vector<Application>);
 
 };
 

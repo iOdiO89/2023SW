@@ -45,7 +45,7 @@
     <ClCompile Include="GeneralMember.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="application.cpp">
+    <ClCompile Include="Application.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Join.cpp">
@@ -79,6 +79,24 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="WithdrawalUI.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplyRecruit.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplyRecruitUI.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CancelApply.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CancelApplyUI.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchApply.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchApplyUI.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -147,6 +165,24 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="ApplicationCollection.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplyRecruit.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplyRecruitUI.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CancelApply.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CancelApplyUI.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchApply.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchApplyUI.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
