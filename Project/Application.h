@@ -2,18 +2,20 @@
 #include <string>
 using namespace std;
 
-class Recruit
+class Application
 {
 private:
     string companyName;
+    string businessNum;
     string task;
     int number;
     string deadline;
 
 public:
+    Application(string companyName, string businessNum, string task, int number, string deadline);
     string getCompanyName();
+    string getBusinessNum();
     string getTask();
     int getNumber();
     string getDeadline();
-    // 디테일 튜플로 반환하는 함수
 };

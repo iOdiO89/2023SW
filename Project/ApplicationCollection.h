@@ -1,15 +1,15 @@
-#pragma once
-#include <iostream>
-#include <string.h>
-#include <vector>
 #include "Application.h"
-
-using namespace std;
+#include <tuple>
+#include <vector>
 
 class ApplicationCollection
 {
 private:
-	vector<Application> arrAC;
+    vector<Application> arrAC;
+
 public:
-	Application GetApplicationRef(int);
+    void addNewApply(string companyName, string businessNum, string task, int number, string deadline);
+    Application getAppreference(int i);
+    tuple<string, string, string> deleteApply(string businessNum);
+    vector<Application> getArrAC();
 };
