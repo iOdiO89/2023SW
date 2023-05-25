@@ -5,7 +5,8 @@ void CancelApplyUI::selectApplication(string businessNum, Member* currentMember)
     tuple<string, string, string> getInfo;
     CancelApply *CA = new CancelApply();
     getInfo = CA->cancelApplication(businessNum, currentMember);
-   
+    
+    // output.txt에 출력
     fstream writeFile("output.txt", ios::app);
     if (writeFile.is_open()) {
         writeFile << "4.4. 지원 취소" << endl;

@@ -6,6 +6,7 @@ void ApplyRecruitUI ::applyNewRecruit(string businessNum, Member* currentMember)
     ApplyRecruit* AR = new ApplyRecruit();
     getInfo = AR->newRecruit(businessNum, currentMember);
 
+	// output.txt에 저장
 	fstream writeFile("output.txt", ios::app);
 	if (writeFile.is_open()) {
 		writeFile << "4.2. 채용 지원" << endl;

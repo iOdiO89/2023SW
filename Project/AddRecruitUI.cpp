@@ -1,10 +1,10 @@
-#include "AddRecruitUI.h"
+ï»¿#include "AddRecruitUI.h"
 
 void AddRecruitUI::createRecruit(string rest, Member* currentMember) {
 	stringstream ss(rest);
 	string task, deadline;
 	int number;
-	ss >> task >> number >> deadline;
+	ss >> task >> number >> deadline; // input.txtì— ìˆë˜ ë§¤ê°œë³€ìˆ˜ë“¤ì„ ê³µë°±ë¶„ë¦¬
 
 	AddRecruit addRecruit;
 	addRecruit.addNewRecruit(task, number, deadline, currentMember);
@@ -13,14 +13,14 @@ void AddRecruitUI::createRecruit(string rest, Member* currentMember) {
 	string strNumber;
 	fstream writeFile("output.txt", ios::app);
 	if (writeFile.is_open()) {
-		writeFile << "3.1. Ã¤¿ë Á¤º¸ °Ë»ö" << endl;
+		writeFile << "3.1. ì±„ìš© ì •ë³´ ê²€ìƒ‰" << endl;
 
-		task = task + " "; // ¾÷¹«
-		strNumber = to_string(number) + " "; // ÀÎ¿ø¼ö
-		deadline = deadline; // ¸¶°¨ÀÏ
+		task = task + " "; // ì—…ë¬´
+		strNumber = to_string(number) + " "; // ì¸ì›ìˆ˜
+		deadline = deadline; // ë§ˆê°ì¼
 		line = "> " + task + strNumber + deadline;
 
-		writeFile << line << endl; // txt ÆÄÀÏ¿¡ ÀÛ¼º
+		writeFile << line << endl; // txt íŒŒì¼ì— ì‘ì„±
 		writeFile.close();
 	}
 	return;

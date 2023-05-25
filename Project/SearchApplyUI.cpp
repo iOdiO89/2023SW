@@ -8,6 +8,7 @@ void SearchApplyUI::searchApplication(Member* currentMember)
     vector<tuple<string, string, string, int, string>> getApplist;
     getApplist = SA->showMemberApplication(currentMember);
 
+    // output.txt에 출력
     string line = "";
     string companyName, businessNum, task, number, deadline;
 	fstream writeFile("output.txt", ios::app);

@@ -1,4 +1,4 @@
-#include "StatsUI.h"
+ï»¿#include "StatsUI.h"
 
 void StatsUI::checkStats(Member* currentMember)
 {
@@ -6,16 +6,17 @@ void StatsUI::checkStats(Member* currentMember)
     Stats* rs = new Stats();
     statInfo = rs->showStats(currentMember);
 
+    // output.txtì— ì¶œë ¥
     fstream writeFile("output.txt", ios::app);
     if (writeFile.is_open()) {
-        writeFile << "5.1. Áö¿ø Á¤º¸ Åë°è" << endl;
+        writeFile << "5.1. ì§€ì› ì •ë³´ í†µê³„" << endl;
 
         string line = "";
         for (int i = 0; i < statInfo.size(); i++) {
             string task = get<0>(statInfo[i]);
             string count = get<1>(statInfo[i]);
             line = "> " + task + count;
-            writeFile << line << endl; //text ÆÄÀÏ¿¡ ÀÛ¼º
+            writeFile << line << endl; //text íŒŒì¼ì— ì‘ì„±
             line = "";
         }
         writeFile.close();

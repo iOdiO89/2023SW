@@ -1,4 +1,4 @@
-#include "SearchRecruit.h"
+ï»¿#include "SearchRecruit.h"
 
 vector<tuple<string, string, string, int ,string>> SearchRecruit::callRecruitInfo(string searchCompanyName) {
 	int isCompanyMember = 0;
@@ -7,15 +7,15 @@ vector<tuple<string, string, string, int ,string>> SearchRecruit::callRecruitInf
 
 	string companyName;
 	for (int i = 0; i < Member::memList.size(); i++) {
-		isCompanyMember = Member::memList[i]->getIsCompanyMember(); // È¸»çÈ¸¿øÀÎ °æ¿ì 1 ¹İÈ¯
-		if (isCompanyMember == 1) { // È¸»çÈ¸¿øÀÎ °æ¿ì
+		isCompanyMember = Member::memList[i]->getIsCompanyMember(); // íšŒì‚¬íšŒì›ì¸ ê²½ìš° 1 ë°˜í™˜
+		if (isCompanyMember == 1) { // íšŒì‚¬íšŒì›ì¸ ê²½ìš°
 			companyName = Member::memList[i]->getCompanyName();
 
-			if (companyName == searchCompanyName) { // È¸»çÈ¸¿øÀÌ¸é¼­ °Ë»öÇÑ ÀÌ¸§°ú ÀÏÄ¡ÇÏ´Â °æ¿ì
-				recruitInstance = Member::memList[i]->listRecruit(); // ÇØ´ç È¸»ç È¸¿øÀÌ µî·ÏÇÑ Ã¤¿ë Á¤º¸ °´Ã¼¸¦ ´ã°í
+			if (companyName == searchCompanyName) { // íšŒì‚¬íšŒì›ì´ë©´ì„œ ê²€ìƒ‰í•œ ì´ë¦„ê³¼ ì¼ì¹˜í•˜ëŠ” ê²½ìš°
+				recruitInstance = Member::memList[i]->listRecruit(); // í•´ë‹¹ íšŒì‚¬ íšŒì›ì´ ë“±ë¡í•œ ì±„ìš© ì •ë³´ ê°ì²´ë¥¼ ë‹´ê³ 
 
 				for (int i = 0; i < recruitInstance.size(); i++) {
-					recruitDetail.push_back(recruitInstance[i].getRecruitDetails()); // °¢ Ã¤¿ëÁ¤º¸ÀÇ attribute °ªµéÀ» ¹Ş¾Æ¿È
+					recruitDetail.push_back(recruitInstance[i].getRecruitDetails()); // ê° ì±„ìš©ì •ë³´ì˜ attribute ê°’ë“¤ì„ ë°›ì•„ì˜´
 				}
 			}
 		}

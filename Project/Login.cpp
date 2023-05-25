@@ -1,4 +1,4 @@
-#include "Login.h"
+ï»¿#include "Login.h"
 
 tuple<string,string, Member*> Login::loginMem(string searchID, string searchPW) {
 	string ID="", PW = "";
@@ -7,10 +7,10 @@ tuple<string,string, Member*> Login::loginMem(string searchID, string searchPW) 
 		ID = Member::memList[i]->getID();
 		PW = Member::memList[i]->getPW();
 
-		if (ID == searchID && PW == searchPW) { // ¿Ã¹Ù¸¥ È¸¿ø Á¤º¸¸¦ Ã£À¸¸é ÇØ´ç È¸¿øÁ¤º¸¸¦ ¹İÈ¯
-			return make_tuple(ID, PW, Member::memList[i]);
+		if (ID == searchID && PW == searchPW) { // ì˜¬ë°”ë¥¸ íšŒì› ì •ë³´ë¥¼ ì°¾ìœ¼ë©´ í•´ë‹¹ íšŒì›ì •ë³´ë¥¼ ë°˜í™˜
+			return make_tuple(ID, PW, Member::memList[i]); // ID, PW, ì°¾ì€ íšŒì› ê°ì²´ ë°˜í™˜
 		}
 	}
 	Member* nullMember = NULL;
-	return make_tuple(ID, PW, nullMember); // È¸¿ø ¸®½ºÆ®¿¡ È¸¿ø Á¤º¸°¡ ¾ø´Â °æ¿ì
+	return make_tuple(ID, PW, nullMember); // íšŒì› ë¦¬ìŠ¤íŠ¸ì— íšŒì› ì •ë³´ê°€ ì—†ëŠ” ê²½ìš° (ì—ëŸ¬ì²˜ë¦¬)
 }

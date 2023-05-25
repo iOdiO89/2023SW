@@ -1,32 +1,33 @@
-#include "JoinUI.h"
+ï»¿#include "JoinUI.h"
 
 void JoinUI::clickJoinButton(string rest) {
 	stringstream ss(rest);
 	int isCompanyMember;
-	string temp1; // ÀÌ¸§ ¶Ç´Â È¸»çÀÌ¸§
-	string temp2; // ÁÖ¹Î¹øÈ£ ¶Ç´Â »ç¾÷ÀÚ¹øÈ£
-	string ID, PW; // È¸»çÈ¸¿ø, ÀÏ¹İÈ¸¿ø ¸ğµÎ »ç¿ëÇÏ´Â º¯¼ö
+	string temp1; // ì´ë¦„ ë˜ëŠ” íšŒì‚¬ì´ë¦„
+	string temp2; // ì£¼ë¯¼ë²ˆí˜¸ ë˜ëŠ” ì‚¬ì—…ìë²ˆí˜¸
+	string ID, PW; // íšŒì‚¬íšŒì›, ì¼ë°˜íšŒì› ëª¨ë‘ ì‚¬ìš©í•˜ëŠ” ë³€ìˆ˜
  
-	ss >> isCompanyMember >> temp1 >> temp2 >> ID >> PW;
+	ss >> isCompanyMember >> temp1 >> temp2 >> ID >> PW; // ê³µë°±ë¶„ë¦¬
 
 	Join join;
 	string sTemp2, sTemp3;
 	tuple<int, string, string, string, string> memberInfo;
 	memberInfo = join.joinMem(isCompanyMember, temp1, temp2, ID, PW);
 
-	// ¹Ş¾Æ¿Â Á¤º¸ ÀÓ½Ãº¯¼ö¿¡ ÀúÀå
-	sTemp3 = to_string(get<0>(memberInfo)) + " "; // 1(È¸»çÈ¸¿ø) ¶Ç´Â 2(ÀÏ¹İÈ¸¿ø)
-	temp1 = get<1>(memberInfo) + " "; // È¸»çÀÌ¸§ ¶Ç´Â ÀÌ¸§
-	sTemp2 = get<2>(memberInfo) + " "; // »ç¾÷ÀÚ¹øÈ£ ¶Ç´Â ÁÖ¹Î¹øÈ£
-	ID = get<3>(memberInfo) + " "; // ¾÷¹«
-	PW = get<4>(memberInfo); // ÀÎ¿ø¼ö
+	// ë°›ì•„ì˜¨ ì •ë³´ ì„ì‹œë³€ìˆ˜ì— ì €ì¥
+	sTemp3 = to_string(get<0>(memberInfo)) + " "; // 1(íšŒì‚¬íšŒì›) ë˜ëŠ” 2(ì¼ë°˜íšŒì›)
+	temp1 = get<1>(memberInfo) + " "; // íšŒì‚¬ì´ë¦„ ë˜ëŠ” ì´ë¦„
+	sTemp2 = get<2>(memberInfo) + " "; // ì‚¬ì—…ìë²ˆí˜¸ ë˜ëŠ” ì£¼ë¯¼ë²ˆí˜¸
+	ID = get<3>(memberInfo) + " "; // ì—…ë¬´
+	PW = get<4>(memberInfo); // ì¸ì›ìˆ˜
 
+	// output.txt íŒŒì¼ì— ì¶œë ¥
 	string line = "";
 	fstream writeFile("output.txt", ios::app);
 	if (writeFile.is_open()) {
 		line = "> " + sTemp3 + temp1 + sTemp2 + ID + PW;
 
-		writeFile << "1.1. È¸¿ø°¡ÀÔ" << endl;
+		writeFile << "1.1. íšŒì›ê°€ì…" << endl;
 		writeFile << line << endl;
 
 		writeFile.close();

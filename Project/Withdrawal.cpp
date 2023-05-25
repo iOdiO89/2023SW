@@ -1,12 +1,13 @@
-#include "Withdrawal.h"
+ï»¿#include "Withdrawal.h"
 
 string Withdrawal::withdrawalMem(Member* currentMember) {
-    string ID = currentMember->getID();
+    // í˜„ìž¬ ë¡œê·¸ì¸ ë˜ì–´ìžˆëŠ” ê³„ì •ì˜ ID ë°›ì•„ì˜¤ê¸°
+    string ID = currentMember->getID(); 
 
     int size = Member::memList.size();
     for (int i = 0; i < size; i++) {
         if (currentMember == Member::memList[i]) {
-            Member::memList.erase(Member::memList.begin() + i); // È¸¿ø Á¤º¸ ¸®½ºÆ®¿¡¼­ »èÁ¦
+            Member::memList.erase(Member::memList.begin() + i); // íšŒì› ì •ë³´ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚­ì œ
         }
 
     }

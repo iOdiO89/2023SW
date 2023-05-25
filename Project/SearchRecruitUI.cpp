@@ -11,6 +11,7 @@ void SearchRecruitUI::clickSearchRecruit(string searchCompanyName)
     string companyName, businessNum, task, number, deadline;
     string line;
 
+    // output.txt에 출력
     fstream writeFile("output.txt", ios::app);
     if (writeFile.is_open()) {
         writeFile << "4.1. 채용 정보 검색" << endl;

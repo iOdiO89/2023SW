@@ -1,23 +1,24 @@
-#include "ShowRecruitUI.h"
+ï»¿#include "ShowRecruitUI.h"
 #include "ShowRecruit.h"
 
 void ShowRecruitUI::clickShowRecruit(Member* currentMember) {
 	ShowRecruit showRecruit;
 	vector<tuple<string, int, string>> recruitDetail;
-	recruitDetail = showRecruit.showListOfRecruit(currentMember);
+	recruitDetail = showRecruit.showListOfRecruit(currentMember); 
 
+	// output.txt ì— ì¶œë ¥
 	string line;
 	string task, number, deadline;
 	fstream writeFile("output.txt", ios::app);
 	if (writeFile.is_open()) {
-		writeFile << "3.2. µî·ÏµÈ Ã¤¿ë Á¤º¸ Á¶È¸" << endl;
+		writeFile << "3.2. ë“±ë¡ëœ ì±„ìš© ì •ë³´ ì¡°íšŒ" << endl;
 		for (int i = 0; i < recruitDetail.size(); i++) {
-			task = get<0>(recruitDetail[i]) + " "; // ¾÷¹«
-			number = to_string(get<1>(recruitDetail[i])) + " "; // ÀÎ¿ø¼ö
-			deadline = get<2>(recruitDetail[i]); // ¸¶°¨ÀÏ
+			task = get<0>(recruitDetail[i]) + " "; // ì—…ë¬´
+			number = to_string(get<1>(recruitDetail[i])) + " "; // ì¸ì›ìˆ˜
+			deadline = get<2>(recruitDetail[i]); // ë§ˆê°ì¼
 			line = "> " + task + number + deadline;
 
-			writeFile << line << endl; // txt ÆÄÀÏ¿¡ ÀÛ¼º
+			writeFile << line << endl; // txt íŒŒì¼ì— ì‘ì„±
 		}
 		writeFile.close();
 	}
